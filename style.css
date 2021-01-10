@@ -1,0 +1,20 @@
+* {
+  border: 1px solid gold;
+}
+body, header {
+  text-align: center;
+}
+
+.displayContainer {
+  display:flex ;
+justify-content: space-evenly;
+}
+
+.displayStatus, .gameDisplay {
+  border : 1px solid black;
+  border-color: black;
+}
+
+.displayStatus, .displayContainer, .dicePic{
+  margin: 15px 0px ;
+}

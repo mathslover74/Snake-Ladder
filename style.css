@@ -18,3 +18,38 @@ justify-content: space-evenly;
 .displayStatus, .displayContainer, .dicePic{
   margin: 15px 0px ;
 }
+
+.gameBoard {
+  width: 620px;
+  height: 620px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.square {
+
+  width: 60px;
+  height: 60px;
+  /* flex-basis: 30px; */
+  display: flex;
+  /* align-items: ; */
+  justify-content: center;
+  border: 1px, solid black;
+  /* position:fixed; */
+  left:10px;
+  /* text-align: right; */
+}
+
+.num {
+  position: relative;
+  left:25px;
+  top: 40px;
+}
+
+.container {
+  width: 450px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}

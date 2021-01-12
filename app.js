@@ -80,52 +80,28 @@ const genBoard = (size) => {
       case 10:
         genRow2(10,91,100);
         break;  
-      
+      }
     }
-
-
-    }
-    
-    
-    
-    // if(i%2==0) {
-    //   genRow2(10)
-    // } else {
-    //   genRow1(10)
-    // }
-  // }
-}
-///test
-const test = (num,num1) => {
-  for (let i = num; i<=num1; i++) {
-    switch(i) {
-      case 1:
-        console.log('1');
-        break;
-      case 2:
-        console.log('2');
-        break;
-      default:
-        console.log('error')
-    }
-    
-    
-    
-    // if(i%2==0) {
-    //   genRow2(10)
-    // } else {
-    //   genRow1(10)
-    // }
   }
-}
 
-  
 
+  const genPlayers = () => {
+    const $x = $('<div>').addClass('x')
+    $('#1').append($x)
+    const $xo = $('<div>').addClass('xo')
+    $('#1').append($xo)
+  } 
+
+  const game = () => {
+    genBoard(10);
+    genPlayers()
+  }
 
 $(() => {
 
+  game();
   // test(1,5);
-  genBoard(10);
+  // genBoard(10);
   // genRow1(1,1,10);
   // genRow2(2,11,20);
   // genRow1(3,21,30);

@@ -66,3 +66,21 @@ justify-content: space-evenly;
   display: flex;
   flex-direction: row-reverse;
 }
+
+.x {
+  background: red;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  position: relative;
+  bottom: 15px;
+}
+
+.xo {
+  background:blue;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  position: relative;
+  bottom: 15px;
+}

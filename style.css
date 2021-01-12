@@ -20,11 +20,12 @@ justify-content: space-evenly;
 }
 
 .gameBoard {
-  width: 620px;
-  height: 620px;
+  width: 640px;
+  height: 640px;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+  /* flex-direction: row-reverse; */
 }
 
 .square {
@@ -32,7 +33,7 @@ justify-content: space-evenly;
   width: 60px;
   height: 60px;
   /* flex-basis: 30px; */
-  display: flex;
+  /* display: flex; */
   /* align-items: ; */
   justify-content: center;
   border: 1px, solid black;
@@ -40,10 +41,10 @@ justify-content: space-evenly;
   left:10px;
   /* text-align: right; */
 }
-
+/*  */
 .num {
   position: relative;
-  left:25px;
+  left:20px;
   top: 40px;
 }
 
@@ -52,4 +53,16 @@ justify-content: space-evenly;
   margin: auto;
   display: flex;
   flex-wrap: wrap;
+}
+
+/* .row3,  */
+.row1, .row3, .row5, .row7,.row9{
+  display: flex;
+  /* flex-direction: row-reverse; */
+}
+
+/* .row4, .row6, .row8, .row10 */
+.row2, .row4, .row6, .row8, .row10{
+  display: flex;
+  flex-direction: row-reverse;
 }

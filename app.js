@@ -1,5 +1,13 @@
 console.log('linked')
 
+class Player {
+  constructor(name){
+    this.name = name;
+    this.player = true;
+    this.location = 1;
+    this.turn = true;
+  }
+}
 
 //// make sq counting left to right
 const mkSq = (row,num) => {
@@ -84,6 +92,13 @@ const genBoard = (size) => {
     }
   }
 
+  const genPlayer1 = (name) => {
+    const player1 = new Player (name);
+    const $player1 =$('<div>').addClass(`${name}`)
+    $(`#${player1.location}`).append($player1)
+    // $('#1').append($player1)
+    console.log(player1.location)
+  }
 
   const genPlayers = () => {
     const $x = $('<div>').addClass('x')
@@ -94,8 +109,10 @@ const genBoard = (size) => {
 
   const game = () => {
     genBoard(10);
-    genPlayers()
+    genPlayer1('x')
+    // genPlayers()
   }
+
 
 $(() => {
 

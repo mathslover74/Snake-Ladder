@@ -7,6 +7,16 @@ class Player {
     this.location = 1;
     this.turn = true;
   }
+
+  checkWin =() => {
+    if(this.location >= 100){
+      console.log(`${this.name} wins!`);
+      const $win = `Player ${name} win the game!`
+      $('.displayStatus').empty().append($win)
+    }
+  }
+
+
 }
 
 //// make sq counting left to right
@@ -93,23 +103,65 @@ const genBoard = (size) => {
   }
 
   const genPlayer1 = (name) => {
-    const player1 = new Player (name);
+    let player1 = new Player (name);
     const $player1 =$('<div>').addClass(`${name}`)
     $(`#${player1.location}`).append($player1)
     // $('#1').append($player1)
     console.log(player1.location)
   }
 
-  const genPlayers = () => {
-    const $x = $('<div>').addClass('x')
-    $('#1').append($x)
-    const $xo = $('<div>').addClass('xo')
-    $('#1').append($xo)
-  } 
+  const genPlayer2 = (name) => {
+    let player2 = new Player (name);
+    const $player2 =$('<div>').addClass(`${name}`)
+    $(`#${player2.location}`).append($player2)
+    player2.turn = false;
+    // $('#1').append($player1)
+    console.log(player2.location)
+  }
+
+  const dice = () => {
+    let roll = (Math.ceil(Math.random()*6));
+    console.log(roll);
+  }
+
+  const move = () => {
+// console.log(player1.turn)
+if(player1.turn === true) {
+  player1.location += dice();
+  $(`#${player1.location}`).append('.x')
+  player1.turn = false;
+  player2.turn = true
+}
+      
+if(player2.turn === true) {
+  player2.location += dice();
+  $(`#${player2.location}`).append('.xo')
+  player2.turn = false;
+  player1.turn = true
+}
+
+
+  }
 
   const game = () => {
+    const $start = 'Let the game begin. Player 1 please roll the dice'
+    $('.displayStatus').empty().append($start)
+    
     genBoard(10);
-    genPlayer1('x')
+    ///gen player 1
+    let player1 = new Player ('x');
+    const $player1 =$('<div>').addClass(`x`)
+    $(`#${player1.location}`).append($player1)
+    // $('#1').append($player1)
+    console.log(player1)
+    
+    let player2 = new Player ('xo');
+    const $player2 =$('<div>').addClass(`${'xo'}`)
+    $(`#${player2.location}`).append($player2)
+    player2.turn = false;
+    console.log(player2)
+
+    
     // genPlayers()
   }
 
@@ -124,16 +176,8 @@ $(() => {
   // genRow1(3,21,30);
   // genRow2(4,31,40);
 
-
-// genRow2(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-// genRow1(10)
-
+////button
+$('#roll').on('click',move)
+  // $('X').on('click',player1)
+  // $('XO').on('click',player2)
 })

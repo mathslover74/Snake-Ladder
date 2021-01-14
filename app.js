@@ -103,15 +103,15 @@ const genBoard = (size) => {
   }
 
   const genPlayer1 = (name) => {
-    let player1 = new Player (name);
+    const player1 = new Player (name);
     const $player1 =$('<div>').addClass(`${name}`)
     $(`#${player1.location}`).append($player1)
-    // $('#1').append($player1)
+    $('#6').append($player1)
     console.log(player1.location)
   }
 
   const genPlayer2 = (name) => {
-    let player2 = new Player (name);
+    const player2 = new Player (name);
     const $player2 =$('<div>').addClass(`${name}`)
     $(`#${player2.location}`).append($player2)
     player2.turn = false;
@@ -122,47 +122,75 @@ const genBoard = (size) => {
   const dice = () => {
     let roll = (Math.ceil(Math.random()*6));
     console.log(roll);
+    // return;
   }
 
-  const move = () => {
-// console.log(player1.turn)
-if(player1.turn === true) {
-  player1.location += dice();
-  $(`#${player1.location}`).append('.x')
-  player1.turn = false;
-  player2.turn = true
-}
-      
-if(player2.turn === true) {
-  player2.location += dice();
-  $(`#${player2.location}`).append('.xo')
-  player2.turn = false;
-  player1.turn = true
-}
-
+  const reset = () => {
+    player1.location = 1;
+    player2.location = 1;
+    player1.turn = true;
+    player2.turn = false;
 
   }
-
+ const player1 = new Player ('x');
+const player2 = new Player ('xo');
   const game = () => {
     const $start = 'Let the game begin. Player 1 please roll the dice'
     $('.displayStatus').empty().append($start)
     
     genBoard(10);
     ///gen player 1
-    let player1 = new Player ('x');
+   
     const $player1 =$('<div>').addClass(`x`)
     $(`#${player1.location}`).append($player1)
     // $('#1').append($player1)
     console.log(player1)
     
-    let player2 = new Player ('xo');
+    
     const $player2 =$('<div>').addClass(`${'xo'}`)
     $(`#${player2.location}`).append($player2)
     player2.turn = false;
     console.log(player2)
-
-    
     // genPlayers()
+  }
+
+  const move = () => {
+    // dice();
+
+console.log(player1.turn) //true
+    // $(`#5`).append($('.x'))
+if(player1.turn === true) {
+  console.log(player1.location) /// 1
+  // player1.location += dice() ;
+  player1.location += (Math.ceil(Math.random()*6));
+  console.log(player1.location)
+//   // let x = Number(player1.location);
+//   // console.log(x)
+  // console.log('#'+`${player1.location}`)
+  $(`#${player1.location}`).append($('.x'));
+//   // $(`#${player1.location}`).append('.x')
+  player1.turn = false;
+  console.log(player1.turn) //true
+  player2.turn = true;
+  console.log(player2.turn) //true
+  player1.checkWin;
+const $start = 'Player 2 turn please roll the dice'
+$('.displayStatus').empty().append($start)
+  
+}
+      
+else if (player2.turn === true) {
+  player2.location += (Math.ceil(Math.random()*6));
+  // player2.location += dice();
+  $(`#${player2.location}`).append($('.xo'))
+  player2.turn = false;
+  player1.turn = true;
+  player2.checkWin
+const $start = 'Player 1 turn please roll the dice'
+$('.displayStatus').empty().append($start)
+}else {
+  console.log('error')
+}
   }
 
 
@@ -180,4 +208,5 @@ $(() => {
 $('#roll').on('click',move)
   // $('X').on('click',player1)
   // $('XO').on('click',player2)
+  $('#restart').on('click',reset)
 })

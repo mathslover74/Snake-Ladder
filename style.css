@@ -92,7 +92,7 @@ justify-content: space-evenly;
 .ladder1 {
   position: relative;
   top:700px;
-  right:14px;
+  right:20px;
   height: 70px;
   transform: scaleY(2);
 }
@@ -100,7 +100,7 @@ justify-content: space-evenly;
 .ladder2 {
   position: relative;
   top:280px;
-  right:40px;
+  left:30px;
   height: 100px;
   transform: rotate(-40deg)scaleY(1.8);
   /* transform: scaleY(2); */
@@ -112,4 +112,28 @@ justify-content: space-evenly;
   left:80px;
   height: 100px;
   transform: rotate(50deg)scaleY(2.3);
+}
+
+.snake1 {
+  position: relative;
+  top:610px;
+  left:20px;
+  height: 70px;
+  transform: rotate(150deg)scaleY(3);
+}
+
+.snake2 {
+  position: relative;
+  top:500px;
+  left:160px;
+  height: 70px;
+  transform: rotate(-130deg)scaleY(2.8);
+}
+
+.snake3 {
+  position: relative;
+  top:270px;
+  right:25px;
+  height: 70px;
+  transform: rotate(135deg)scaleY(2.7);
 }

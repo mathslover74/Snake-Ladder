@@ -135,6 +135,7 @@ const move = () => {
   console.log(player1.turn); //true
   // $(`#5`).append($('.x'))
   if (player1.turn === true) {
+    // random = 75
     random = Math.ceil(Math.random() * 6);
     player1.location += random;
     $(`#${player1.location}`).append($(".x"));
@@ -145,8 +146,8 @@ const move = () => {
     const $start = `Player 1 rolled a ${random}. Player 2 turn please roll the dice`;
     $(".displayStatus").empty().append($start);
   } else if (player2.turn === true) {
-    random = 96;
-    // random = (Math.ceil(Math.random()*6))
+    // random = 3;
+    random = (Math.ceil(Math.random()*6))
     player2.location += random;
     $(`#${player2.location}`).append($(".xo"));
     player2.turn = false;
@@ -171,14 +172,23 @@ const insertLadder = () => {
 const ladderSnake = (player, id) => {
   console.log(player.location);
   switch (player.location) {
-    case 5:
-      $("#25").append($(id));
+    case 3:
+      $("#23").append($(id));
       return;
-    case 46:
-      $("#69").append($(id));
+    case 44:
+      $("#67").append($(id));
       return;
-    case 75:
-      $("#97").append($(id));
+    case 45:
+      $("#15").append($(id));
+      return;
+    case 51:
+      $("#33").append($(id));
+      return;
+    case 76:
+      $("#98").append($(id));
+      return;
+    case 95:
+      $("#73").append($(id));
       return;
   }
 };

@@ -288,28 +288,6 @@ const ladderSnake = (player, id) => {
 $(() => {
   game();
 
-  // $.ajax({
-  //   url: "http://roll.diceapi.com/json/d6",
-  //   type: "GET",
-  //   data: {
-  //     success: true,
-  //     dice: [
-  //       { value: 1, type: "d6" },
-  //       { value: 2, type: "d6" },
-  //       { value: 3, type: "d6" },
-  //       { value: 4, type: "d6" },
-  //       { value: 5, type: "d6" },
-  //       { value: 6, type: "d6" },
-  //     ],
-  //   },
-  // }).then(
-  //   (data) => {
-  //     console.log(data);
-  //   },
-  //   () => {
-  //     console.log("bad request");
-  //   }
-  // ); //
   console.log('test');
   ////button
   $("#roll").on("click", move);

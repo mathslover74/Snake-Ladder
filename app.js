@@ -6,6 +6,7 @@ class Player {
     this.player = true;
     this.location = 1;
     this.turn = true;
+    this.gameStart = false;
   }
 
   checkWin = (player) => {
@@ -112,29 +113,34 @@ const reset = () => {
 };
 const player1 = new Player("1");
 const player2 = new Player("2");
+
+
 const game = () => {
   const $start = "Let the game begin. Pick 1 player or 2 player";
   $(".displayStatus").empty().append($start);
 
   genBoard(10);
   insertLadder();
-  ///gen player 1
+};
 
+const gameStart = () => {
   const $player1 = $("<div>").addClass(`x`);
   $(`#${player1.location}`).append($player1);
+  player1.gameStart = true;
   console.log(player1);
 
   ///gen player 2
   const $player2 = $("<div>").addClass(`${"xo"}`);
   $(`#${player2.location}`).append($player2);
   player2.turn = false;
+  player2.gameStart = true;
   console.log(player2);
-};
+}
 
 const move = () => {
   console.log(player1.turn); //true
   // $(`#5`).append($('.x'))
-  if (player1.turn === true) {
+  if (player1.turn === true && player1.gameStart === true) {
     // random = 75
     random = Math.ceil(Math.random() * 6);
     player1.location += random;
@@ -145,7 +151,7 @@ const move = () => {
     ladderSnake(player1, ".x");
     const $start = `Player 1 rolled a ${random}. Player 2 turn please roll the dice`;
     $(".displayStatus").empty().append($start);
-  } else if (player2.turn === true) {
+  } else if (player2.turn === true && player2.gameStart === true) {
     // random = 3;
     random = (Math.ceil(Math.random()*6))
     player2.location += random;
@@ -158,6 +164,7 @@ const move = () => {
     $(".displayStatus").empty().append($start);
   } else {
     console.log("error");
+    alert('Please start game first')
   }
 };
 
@@ -194,7 +201,7 @@ const ladderSnake = (player, id) => {
 };
 
 $(() => {
-  // game();
+  game();
   // test(1,5);
   // genBoard(10);
   // genRow1(1,1,10);
@@ -204,7 +211,7 @@ $(() => {
 
   ////button
   $("#roll").on("click", move);
-  // $('X').on('click', game)
-  $("XO").on("click", game());
+  // $('#X').on('click', game)
+  $("#XO").on("click", gameStart);
   $("#restart").on("click", reset);
 });

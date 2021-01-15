@@ -309,8 +309,8 @@ $(() => {
   //   () => {
   //     console.log("bad request");
   //   }
-  // );
-
+  // ); //
+  console.log('test');
   ////button
   $("#roll").on("click", move);
   $("#X").on("click", gameStart1);

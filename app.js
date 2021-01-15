@@ -8,6 +8,7 @@ class Player {
     this.turn = true;
     this.gameStart = false;
     this.auto = false;
+    this.win = false;
   }
 
   checkWin = (player) => {
@@ -17,6 +18,7 @@ class Player {
       $(".displayStatus").empty().append($win);
       $("#100").append($(player));
       alert(`Player ${this.name} wins!`);
+      this.win = true;
       alert(`Please reset the game`);
     }
   };
@@ -109,6 +111,8 @@ const reset = () => {
   player2.location = 1;
   player1.turn = true;
   player2.turn = false;
+  player1.win = false;
+  player2.win = false  
   $("#1").append($(".x"));
   $("#1").append($(".xo"));
 };
@@ -227,38 +231,41 @@ const dice = (num) => {
   
 }
 const move = () => {
-  console.log(player1.turn); //true
-  // $(`#5`).append($('.x'))
-  if (player1.turn === true && player1.gameStart === true) {
-    // random = 75
-    random = Math.ceil(Math.random() * 6);
-    player1.location += random;
-    // dice(6);
-    // dice(random)
-    $(`#${player1.location}`).append($(".x"));
-    player1.turn = false;
-    player2.turn = true;
-    player1.checkWin(".x");
-    ladderSnake(player1, ".x");
-    const $start = `Player 1 (Pikachu) rolled a ${random}. Player 2 (Eevee) turn please roll the dice.`;
-    $(".displayStatus").empty().append($start);
-  } else if (player2.turn === true && player2.gameStart === true) {
-    // random = 3;
-    random = Math.ceil(Math.random() * 6);
-    player2.location += random;
-    // dice(5);
-    // dice(random);
-    $(`#${player2.location}`).append($(".xo"));
-    player2.turn = false;
-    player1.turn = true;
-    player2.checkWin(".xo");
-    ladderSnake(player2, ".xo");
-    const $start = `Player 2 (Eevee) rolled a ${random}. Player 1 (Pikachu) turn please roll the dice.`;
-    $(".displayStatus").empty().append($start);
-  } else {
-    console.log("error");
-    alert("Please start game first");
+  if (player1.win === false && player2.win === false ) {
+    console.log(player1.turn); //true
+    // $(`#5`).append($('.x'))
+    if (player1.turn === true && player1.gameStart === true) {
+      // random = 75
+      random = Math.ceil(Math.random() * 6);
+      player1.location += random;
+      // dice(6);
+      // dice(random)
+      $(`#${player1.location}`).append($(".x"));
+      player1.turn = false;
+      player2.turn = true;
+      player1.checkWin(".x");
+      ladderSnake(player1, ".x");
+      const $start = `Player 1 (Pikachu) rolled a ${random}. Player 2 (Eevee) turn please roll the dice.`;
+      $(".displayStatus").empty().append($start);
+    } else if (player2.turn === true && player2.gameStart === true) {
+      // random = 3;
+      random = Math.ceil(Math.random() * 6);
+      player2.location += random;
+      // dice(5);
+      // dice(random);
+      $(`#${player2.location}`).append($(".xo"));
+      player2.turn = false;
+      player1.turn = true;
+      player2.checkWin(".xo");
+      ladderSnake(player2, ".xo");
+      const $start = `Player 2 (Eevee) rolled a ${random}. Player 1 (Pikachu) turn please roll the dice.`;
+      $(".displayStatus").empty().append($start);
+    } else {
+      console.log("error");
+      alert("Please start game first");
+    }
   }
+  
 };
 
 const ladderSnake = (player, id) => {

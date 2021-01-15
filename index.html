@@ -11,8 +11,14 @@
   <title>Snake & Ladder</title>
 </head>
 <header>
-  <h1>Welcome to Snake & Ladder Game</h1>
-  <div class="displayStatus">Click Start Game for 2 player game.</div>
+  <h1>Welcome to Snake & Ladder Game(Pokemon version)</h1>
+  <div class="description">
+    This is a game of classic Snake & Ladder (Pokemon version). <br>
+    Player 1 is <span id="yellow">Pikachu</span>.<br>
+    Player 2 is <span id="brown">Eevee</span>.<br>
+    Click start game to start and let the dice rolling!<br>
+  </div>
+  
   <div class = 'diceContainer'>
 <img class='ladder1' src="https://w0.pngwave.com/png/1017/369/wood-stairs-ladder-cartoon-stairs-png-clip-art-thumbnail.png">
 <img class='ladder2' src="https://w0.pngwave.com/png/1017/369/wood-stairs-ladder-cartoon-stairs-png-clip-art-thumbnail.png">
@@ -21,14 +27,15 @@
 <img class='snake2' src="https://pp.netclipart.com/pp/s/6-64270_green-snake-with-red-belly-snakes-and-ladders.png">
 <img class='snake3' src="https://pp.netclipart.com/pp/s/6-64270_green-snake-with-red-belly-snakes-and-ladders.png">
 
-    <div class="dicePic">Dice picture</div>
+<div class="dicePic">dice</div>
+    <div class="displayStatus"></div>
     <button id='roll' class='button'>Roll</button>
   </div>
   
 
   <div class="displayContainer">
-    <!-- <button id='X' class='button'>1 Player</button> -->
-    <button id='XO' class='button'>Start Game</button>
+    <button id='X' class='button'>Start</button>
+    <!-- <button id='XO' class='button'>2 Player</button> -->
     <button id='restart'>Restart</button></div>
 </header>
 <body>

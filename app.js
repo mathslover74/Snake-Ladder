@@ -7,6 +7,7 @@ class Player {
     this.location = 1;
     this.turn = true;
     this.gameStart = false;
+    this.auto = false;
   }
 
   checkWin = (player) => {
@@ -114,29 +115,106 @@ const reset = () => {
 const player1 = new Player("1");
 const player2 = new Player("2");
 
-
 const game = () => {
-  const $start = "Let the game begin. Pick 1 player or 2 player";
+  const $start = "Click Start Game to start";
   $(".displayStatus").empty().append($start);
 
   genBoard(10);
-  insertLadder();
 };
 
-const gameStart = () => {
+const genPlayer1Status = () => {
   const $player1 = $("<div>").addClass(`x`);
   $(`#${player1.location}`).append($player1);
   player1.gameStart = true;
   console.log(player1);
+};
 
-  ///gen player 2
+const genPlayer2Status = () => {
   const $player2 = $("<div>").addClass(`${"xo"}`);
   $(`#${player2.location}`).append($player2);
   player2.turn = false;
   player2.gameStart = true;
   console.log(player2);
-}
+};
 
+const gameStart1 = () => {
+
+  $.ajax({
+    url:'https://pokeapi.co/api/v2/pokemon/25',
+    type: 'GET',
+  }).then(
+    (data)=>{
+      const $img = data.sprites.front_default
+      // $('.x').attr('src',$img);
+      // $('.x').css('background-image',`${$img}`);
+      // $('body').css('background-image',`url('${$img}')`);
+      $('.x').css('background-image',`url('${$img}')`).addClass('pika');
+      console.log(data.sprites.front_default);
+    },
+    ()=> {
+      console.log('bad request')
+    }
+  )
+
+  $.ajax({
+    url:'https://pokeapi.co/api/v2/pokemon/133',
+    type: 'GET',
+  }).then(
+    (data)=>{
+      const $img = data.sprites.front_default
+      // $('.x').attr('src',$img);
+      // $('.x').css('background-image',`${$img}`);
+      // $('body').css('background-image',`url('${$img}')`);
+      $('.xo').css('background-image',`url('${$img}')`).addClass('eevee');
+      console.log(data.sprites.front_default);
+    },
+    ()=> {
+      console.log('bad request')
+    }
+  )
+
+
+  const $start = "Player 1 (Pikachu) please start rolling the dice";
+  $(".displayStatus").empty().append($start);
+  genPlayer1Status();
+  genPlayer2Status();
+  // if (auto === true) {
+  //   player2.auto = true;
+  // } else {
+  //   player2.auto = false;
+  //
+};
+
+const gameStart2 = () => {
+  genPlayer1Status();
+  genPlayer2Status();
+  // player2.auto = true;
+  // if (auto === true) {
+  //   player2.auto = true;
+  // } else {
+  //   player2.auto = false;
+  //
+};
+// const dice = (num) => {
+//   $.ajax({
+//       url: `http://roll.diceapi.com/json/d6`,
+//       type: "GET",
+//       data: {
+//         success: true,
+//         dice: [
+//           { value: `${num}`, type: "d6" },
+//         ],
+//       },
+//     }).then(
+//       (data) => {
+//         console.log(data);
+//       },
+//       () => {
+//         console.log("bad request");
+//       }
+//     );
+  
+// }
 const move = () => {
   console.log(player1.turn); //true
   // $(`#5`).append($('.x'))
@@ -144,36 +222,30 @@ const move = () => {
     // random = 75
     random = Math.ceil(Math.random() * 6);
     player1.location += random;
+    // dice(6);
     $(`#${player1.location}`).append($(".x"));
     player1.turn = false;
     player2.turn = true;
     player1.checkWin(".x");
     ladderSnake(player1, ".x");
-    const $start = `Player 1 rolled a ${random}. Player 2 turn please roll the dice`;
+    const $start = `Player 1 (Pikachu) rolled a ${random}. Player 2 (Eevee) turn please roll the dice.`;
     $(".displayStatus").empty().append($start);
   } else if (player2.turn === true && player2.gameStart === true) {
     // random = 3;
-    random = (Math.ceil(Math.random()*6))
+    random = Math.ceil(Math.random() * 6);
     player2.location += random;
+    // dice(random);
     $(`#${player2.location}`).append($(".xo"));
     player2.turn = false;
     player1.turn = true;
     player2.checkWin(".xo");
     ladderSnake(player2, ".xo");
-    const $start = `Player 2 rolled a ${random}. Player 1 turn please roll the dice`;
+    const $start = `Player 2 (Eevee) rolled a ${random}. Player 1 (Pikachu) turn please roll the dice.`;
     $(".displayStatus").empty().append($start);
   } else {
     console.log("error");
-    alert('Please start game first')
+    alert("Please start game first");
   }
-};
-
-const insertLadder = () => {
-  $("#5").attr(
-    "src",
-    "https://www.vhv.rs/dpng/d/407-4071532_taz-the-tazmanian-devil-in-love-tasmanian-devil.png"
-  );
-  console.log("11");
 };
 
 const ladderSnake = (player, id) => {
@@ -202,16 +274,33 @@ const ladderSnake = (player, id) => {
 
 $(() => {
   game();
-  // test(1,5);
-  // genBoard(10);
-  // genRow1(1,1,10);
-  // genRow2(2,11,20);
-  // genRow1(3,21,30);
-  // genRow2(4,31,40);
+
+  // $.ajax({
+  //   url: "http://roll.diceapi.com/json/d6",
+  //   type: "GET",
+  //   data: {
+  //     success: true,
+  //     dice: [
+  //       { value: 1, type: "d6" },
+  //       { value: 2, type: "d6" },
+  //       { value: 3, type: "d6" },
+  //       { value: 4, type: "d6" },
+  //       { value: 5, type: "d6" },
+  //       { value: 6, type: "d6" },
+  //     ],
+  //   },
+  // }).then(
+  //   (data) => {
+  //     console.log(data);
+  //   },
+  //   () => {
+  //     console.log("bad request");
+  //   }
+  // );
 
   ////button
   $("#roll").on("click", move);
-  // $('#X').on('click', game)
-  $("#XO").on("click", gameStart);
+  $("#X").on("click", gameStart1);
+  // $("#XO").on("click", gameStart2);
   $("#restart").on("click", reset);
 });

@@ -138,7 +138,7 @@ const genPlayer2Status = () => {
 };
 
 const gameStart1 = () => {
-
+if (player1.gameStart === false) {
   $.ajax({
     url:'https://pokeapi.co/api/v2/pokemon/25',
     type: 'GET',
@@ -173,16 +173,18 @@ const gameStart1 = () => {
     }
   )
 
-
   const $start = "Player 1 (Pikachu) please start rolling the dice";
   $(".displayStatus").empty().append($start);
   genPlayer1Status();
+  player1.gameStart = true;
   genPlayer2Status();
   // if (auto === true) {
   //   player2.auto = true;
   // } else {
   //   player2.auto = false;
   //
+}
+  
 };
 
 const gameStart2 = () => {
@@ -195,26 +197,35 @@ const gameStart2 = () => {
   //   player2.auto = false;
   //
 };
-// const dice = (num) => {
-//   $.ajax({
-//       url: `http://roll.diceapi.com/json/d6`,
-//       type: "GET",
-//       data: {
-//         success: true,
-//         dice: [
-//           { value: `${num}`, type: "d6" },
-//         ],
-//       },
-//     }).then(
-//       (data) => {
-//         console.log(data);
-//       },
-//       () => {
-//         console.log("bad request");
-//       }
-//     );
+const dice = (num) => {
+  switch(num){
+    case 1:
+      $('.dicePic').attr('src','http://roll.diceapi.com/images/poorly-drawn/d6/4.png').css('visibility','visible');
+      break;
+     
+    case 2:
+      $('.dicePic').attr('src','http://roll.diceapi.com/images/poorly-drawn/d6/2.png').css('visibility','visible');
+      break;
+      
+    case 3:
+      $('.dicePic').attr('src','http://roll.diceapi.com/images/poorly-drawn/d6/3.png').css('visibility','visible');
+      break;
+      
+    case 4:
+      $('.dicePic').attr('src','http://roll.diceapi.com/images/poorly-drawn/d6/4.png').css('visibility','visible');
+      break;
+      
+      case 5:
+      $('.dicePic').attr('src','http://roll.diceapi.com/images/poorly-drawn/d6/5.png').css('visibility','visible');
+      break;
   
-// }
+      case 6:
+      $('.dicePic').attr('src','http://roll.diceapi.com/images/poorly-drawn/d6/6.png').css('visibility','visible');
+      break;
+      
+  }
+  
+}
 const move = () => {
   console.log(player1.turn); //true
   // $(`#5`).append($('.x'))
@@ -223,6 +234,7 @@ const move = () => {
     random = Math.ceil(Math.random() * 6);
     player1.location += random;
     // dice(6);
+    dice(random)
     $(`#${player1.location}`).append($(".x"));
     player1.turn = false;
     player2.turn = true;
@@ -234,7 +246,8 @@ const move = () => {
     // random = 3;
     random = Math.ceil(Math.random() * 6);
     player2.location += random;
-    // dice(random);
+    // dice(5);
+    dice(random);
     $(`#${player2.location}`).append($(".xo"));
     player2.turn = false;
     player1.turn = true;
@@ -252,22 +265,22 @@ const ladderSnake = (player, id) => {
   console.log(player.location);
   switch (player.location) {
     case 3:
-      $("#23").append($(id));
+      $("#23").append($(id)); ///ladder 1
       return;
     case 44:
-      $("#67").append($(id));
+      $("#67").append($(id)); /// ladder 3
       return;
     case 45:
-      $("#15").append($(id));
+      $("#15").append($(id));//snake1
       return;
     case 51:
-      $("#33").append($(id));
+      $("#33").append($(id)); ///snake 2
       return;
     case 76:
-      $("#98").append($(id));
+      $("#98").append($(id));///ladder 2
       return;
     case 95:
-      $("#73").append($(id));
+      $("#73").append($(id)); //snake 3
       return;
   }
 };

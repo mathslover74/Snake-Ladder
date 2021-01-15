@@ -75,34 +75,37 @@ justify-content: space-evenly;
 
 .x {
   /* background: red; */
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  border-radius:50%;
+  width: 40px;
+  height: 40px;
   position: relative;
-  bottom: 15px;
+  bottom: 25px;
 }
-
-.pika {
-  position: relative;
-  bottom: px;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-}
-.eevee {
-  position: relative;
-  bottom: px;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-}
-
 
 .xo {
   /* background:blue; */
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   position: relative;
-  bottom: 10px;
+  bottom: 25px;
+}
+.pika {
+  position: relative;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+.eevee {
+  position: relative;
+  background-size: 40px 40px;
+  background-repeat: no-repeat;
+}
+
+.dicePic {
+  display: block;
+margin: auto;
+width: 10%;
+visibility:hidden;
 }
 
 #brown {
@@ -115,7 +118,7 @@ justify-content: space-evenly;
 
 .ladder1 {
   position: relative;
-  top:700px;
+  top:770px;
   right:20px;
   height: 70px;
   transform: scaleY(2);
@@ -123,8 +126,8 @@ justify-content: space-evenly;
 
 .ladder2 {
   position: relative;
-  top:280px;
-  left:30px;
+  top:340px;
+  left:10px;
   height: 100px;
   transform: rotate(-40deg)scaleY(1.8);
   /* transform: scaleY(2); */
@@ -132,8 +135,8 @@ justify-content: space-evenly;
 
 .ladder3 {
   position: relative;
-  top:460px;
-  left:80px;
+  top:540px;
+  left:70px;
   height: 100px;
   transform: rotate(50deg)scaleY(2.3);
 }
@@ -141,7 +144,7 @@ justify-content: space-evenly;
 .snake1 {
   position: relative;
   opacity: 0.7;
-  top:610px;
+  top:700px;
   left:20px;
   height: 70px;
   transform: rotate(150deg)scaleY(3);
@@ -150,7 +153,7 @@ justify-content: space-evenly;
 .snake2 {
   position: relative;
   opacity: 0.7;
-  top:500px;
+  top:580px;
   left:160px;
   height: 70px;
   transform: rotate(-130deg)scaleY(2.8);
@@ -159,7 +162,7 @@ justify-content: space-evenly;
 .snake3 {
   position: relative;
   opacity: 0.7;
-  top:270px;
+  top:340px;
   right:25px;
   height: 70px;
   transform: rotate(135deg)scaleY(2.7);

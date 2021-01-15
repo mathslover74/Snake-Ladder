@@ -2,28 +2,27 @@
   border: 1px solid gold;
 } */
 
-body,
-header {
+
+body, header {
   text-align: center;
   /* background-image:url('https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/25.png'); */
+  
 }
 
 .displayContainer {
-  display: flex;
-  justify-content: space-evenly;
+  display:flex ;
+justify-content: space-evenly;
 }
 
-.displayStatus,
-.gameDisplay {
-  border: 1px solid black;
+.displayStatus, .gameDisplay {
+  border : 1px solid black;
   border-color: black;
 }
 
-.displayStatus,
-.displayContainer,
-.dicePic {
-  margin: 15px 0px;
+.displayStatus, .displayContainer, .dicePic{
+  margin: 15px 0px ;
 }
+
 
 .gameBoard {
   width: 640px;
@@ -35,6 +34,7 @@ header {
 }
 
 .square {
+
   width: 60px;
   height: 60px;
   border: 1px solid gold;
@@ -44,13 +44,13 @@ header {
   justify-content: center;
   border: 1px, solid black;
   /* position:fixed; */
-  left: 10px;
+  left:10px;
   /* text-align: right; */
 }
 /*  */
 .num {
   position: relative;
-  left: 20px;
+  left:20px;
   top: 40px;
 }
 
@@ -62,28 +62,20 @@ header {
 }
 
 /* .row3,  */
-.row1,
-.row3,
-.row5,
-.row7,
-.row9 {
+.row1, .row3, .row5, .row7,.row9{
   display: flex;
   /* flex-direction: row-reverse; */
 }
 
 /* .row4, .row6, .row8, .row10 */
-.row2,
-.row4,
-.row6,
-.row8,
-.row10 {
+.row2, .row4, .row6, .row8, .row10{
   display: flex;
   flex-direction: row-reverse;
 }
 
 .x {
   /* background: red; */
-  border-radius: 50%;
+  border-radius:50%;
   width: 40px;
   height: 40px;
   position: relative;
@@ -111,67 +103,67 @@ header {
 
 .dicePic {
   display: block;
-  margin: auto;
-  width: 10%;
-  visibility: hidden;
+margin: auto;
+width: 10%;
+visibility:hidden;
 }
 
 #brown {
   color: brown;
 }
 
-#yellow {
+#yellow{
   color: rgb(151, 151, 5);
 }
 
 .ladder1 {
   position: relative;
-  top: 700px;
-  right: 20px;
+  top:830px;
+  right:20px;
   height: 70px;
   transform: scaleY(2);
 }
 
 .ladder2 {
   position: relative;
-  top: 280px;
-  left: 10px;
+  top:400px;
+  left:10px;
   height: 100px;
-  transform: rotate(-40deg) scaleY(1.8);
+  transform: rotate(-40deg)scaleY(1.8);
   /* transform: scaleY(2); */
 }
 
 .ladder3 {
   position: relative;
-  top: 450px;
-  left: 70px;
+  top:590px;
+  left:70px;
   height: 100px;
-  transform: rotate(50deg) scaleY(2.3);
+  transform: rotate(50deg)scaleY(2.3);
 }
 
 .snake1 {
   position: relative;
   opacity: 0.7;
-  top: 620px;
-  left: 20px;
+  top:740px;
+  left:20px;
   height: 70px;
-  transform: rotate(150deg) scaleY(3);
+  transform: rotate(150deg)scaleY(3);
 }
 
 .snake2 {
   position: relative;
   opacity: 0.7;
-  top: 510px;
-  left: 160px;
+  top:640px;
+  left:160px;
   height: 70px;
-  transform: rotate(-130deg) scaleY(2.8);
+  transform: rotate(-130deg)scaleY(2.8);
 }
 
 .snake3 {
   position: relative;
   opacity: 0.7;
-  top: 270px;
-  right: 25px;
+  top:380px;
+  right:25px;
   height: 70px;
-  transform: rotate(135deg) scaleY(2.7);
+  transform: rotate(135deg)scaleY(2.7);
 }
